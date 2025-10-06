@@ -9,11 +9,18 @@ min-height: 100vh;
 
 /* ===== КОНТЕЙНЕР СТРАНИЦЫ ===== */
 .page-container { 
-max-width: 1200px; 
-margin: 0 auto; 
-background: white; 
-min-height: 100vh; 
-box-shadow: 0 0 30px rgba(0,0,0,0.1); 
+ max-width: 1200px; 
+ margin: 0 auto; 
+ background: white; 
+ min-height: 100vh; 
+ box-shadow: 0 0 30px rgba(0,0,0,0.1); 
+ display: grid; 
+ grid-template-rows: auto auto 1fr auto; 
+ grid-template-areas: 
+     "header" 
+     "nav" 
+     "main" 
+     "footer"; 
 } 
 
 /* ===== ШАПКА ===== */
@@ -25,12 +32,14 @@ padding: 30px;
 font-size: 28px; 
 font-weight: 300; 
 letter-spacing: 2px; 
+ grid-area: header; 
 } 
 
 /* ===== НАВИГАЦИЯ ===== */
 .nav { 
 background: #2c3e50; 
 padding: 20px 0; 
+ grid-area: nav; 
 } 
 .nav-list { 
 list-style: none; 
@@ -61,6 +70,7 @@ transform: translateY(-2px);
 padding: 40px; 
 max-width: 900px; 
 margin: 0 auto; 
+ grid-area: main; 
 } 
 
 /* ===== ГЛАВНАЯ СТРАНИЦА ===== */
@@ -129,6 +139,14 @@ transform: translateY(-3px);
 box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4); 
 } 
 
+/* ===== НАВЫКИ GRID ===== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
 /* ===== ОПЫТ РАБОТЫ ===== */
 .experience-section { 
 margin-top: 50px; 
@@ -152,6 +170,11 @@ transition: transform 0.3s ease;
 .experience-card:hover { 
 transform: translateX(5px); 
 } 
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
 .experience-title { 
 font-size: 20px; 
 color: #2c3e50; 
@@ -171,6 +194,7 @@ color: white;
 text-align: center; 
 padding: 30px; 
 margin-top: 50px; 
+ grid-area: footer; 
 }
 
 /* ===== НОВОСТИ ===== */
@@ -265,3 +289,13 @@ margin-top: 50px;
     box-shadow: 0 14px 28px rgba(79,172,254,0.45);
 }
 
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 768px) {
+  .nav-list { 
+    flex-direction: column; 
+    gap: 10px; 
+  }
+  .skills-grid { grid-template-columns: 1fr; }
+  .experience-grid { grid-template-columns: 1fr; }
+  .content { padding: 20px; }
+}
