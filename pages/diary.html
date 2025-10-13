@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Дневник</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../style/styles.css">
+    </head>
+    <body>
+        <div class="page">
+            <header class="header"><h1 class="header__title">Учебный дневник</h1></header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container">
+                    <a class="navbar-brand d-none d-lg-inline" href="../index.html">Портфолио</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+                            <li class="nav-item"><a class="nav-link" href="projects.html">Проекты</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="diary.html">Дневник</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <main class="main">
+                <div class="container my-4">
+                    <h2 class="h4 mb-3">Мой учебный прогресс</h2>
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-body">
+                            <ul class="mb-0">
+                                <li>15 дек — Верстка макета сайта ✓</li>
+                                <li>10 дек — JavaScript основы ✓</li>
+                                <li>05 дек — Работа с формами — in progress</li>
+                                <li>01 дек — Адаптивный дизайн — in progress</li>
+                            </ul>
+                        </div>
+                    </div>
+
+					<h3 class="h5">Текущие курсы</h3>
+					<div class="progress-item">
+						<div class="progress-row">
+							<div class="progress-name">Веб‑разработка</div>
+							<div class="progress-track"><span class="progress-fill" id="p1"></span></div>
+							<div class="progress-value" id="p1v">90%</div>
+						</div>
+					</div>
+					<div class="progress-item">
+						<div class="progress-row">
+							<div class="progress-name">JavaScript</div>
+							<div class="progress-track"><span class="progress-fill" id="p2"></span></div>
+							<div class="progress-value" id="p2v">70%</div>
+						</div>
+					</div>
+					<div class="progress-item">
+						<div class="progress-row">
+							<div class="progress-name">React</div>
+							<div class="progress-track"><span class="progress-fill" id="p3"></span></div>
+							<div class="progress-value" id="p3v">50%</div>
+						</div>
+					</div>
+                </div>
+            </main>
+            <footer class="footer"><p class="footer__text">© 2025 Контакты</p></footer>
+        </div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+		<script>
+			function animateProgress(fillId, valueId) {
+				const fill = document.getElementById(fillId);
+				const val = document.getElementById(valueId).textContent.trim();
+				requestAnimationFrame(() => { fill.style.width = val; });
+			}
+			animateProgress('p1', 'p1v');
+			animateProgress('p2', 'p2v');
+			animateProgress('p3', 'p3v');
+		</script>
+    </body>
+</html>
